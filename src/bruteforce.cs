@@ -12,38 +12,30 @@ stopwatch.Stop();
 Console.WriteLine("Your password " + key);
 Console.WriteLine("Time elapsed" + stopwatch.ElapsedMilliseconds);
 
-
 string Hack(string hash)
 {
     char[] symbol = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890".ToArray();
-
-    {
-        for (int e = 0; e < symbol.Length; e++)
+        for (int i = 0; i < symbol.Length; i++)
         {
-            for (int z = 0; z < symbol.Length; z++)
+            for (int j = 0; j < symbol.Length; j++)
             {
-                for (int j = 0; j < symbol.Length; j++)
+                for (int k = 0; k < symbol.Length; k++)
                 {
-                    for (int i = 0; i < symbol.Length; i++)
+                    for (int l = 0; l < symbol.Length; l++)
                     {
-
-
-                        char[] chars = { symbol[i], symbol[j], symbol[z], symbol[e] };
+                        char[] chars = {symbol[i], symbol[j], symbol[k], symbol[l]};
                         string txt = new string(chars);
                         Console.WriteLine(txt);
                         if (StringSha256Hash(txt) == hash)
-                        { return txt; }
-
-
-
+                        { 
+                            return txt; 
+                        }
                     }
                 }
             }
         }
-    }
-    return null;
+        return null;
 }
-
 
 static string StringSha256Hash(string text) =>
   string.IsNullOrEmpty(text)
